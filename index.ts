@@ -228,12 +228,12 @@ const cli = async (): Promise<void> => {
       } ${(options.chrome && "-c ") || ""}${(options.safari && "-s ") || ""}${
         (options.firefox && "-f ") || ""
       }${(options.headless && "-h ") || ""}${(options.dryRun && "-d ") || ""}${
-        (options.hours && options.hours != 8 && `-H ${options.hours}`) || ""
-      }${(options.monday && `-M ${options.monday}`) || ""}${
-        (options.tuesday && `-T ${options.tuesday}`) || ""
-      }${(options.wednesday && `-W ${options.wednesday}`) || ""}${
-        (options.thursday && `--thursday ${options.thrusday}`) || ""
-      }${(options.friday && `-F ${options.friday}`) || ""}`;
+        (options.hours && options.hours != 8 && `-H '${options.hours}' `) || ""
+      }${(options.monday && `-M '${options.monday}' `) || ""}${
+        (options.tuesday && `-T '${options.tuesday}' `) || ""
+      }${(options.wednesday && `-W '${options.wednesday}' `) || ""}${
+        (options.thursday && `--thursday '${options.thrusday}' `) || ""
+      }${(options.friday && `-F '${options.friday}' `) || ""}`;
       console.log("\r\n");
       console.log("\r\n");
       console.log(chalk.magenta(commandString));
