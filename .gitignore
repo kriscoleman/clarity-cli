@@ -108,3 +108,5 @@ dist
 *.d.ts
 
 *.js
+
+.DS_Store

@@ -8,7 +8,7 @@ import { BrowserType, clarity } from "./clarity-util";
 import { exit } from "process";
 import promptly from "promptly";
 import os from "os";
-import * as packageJson from "./package.json";
+import * as packageJson from "../package.json";
 
 const cli = async (): Promise<void> => {
   let browserType: BrowserType;
