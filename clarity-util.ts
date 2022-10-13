@@ -1,4 +1,4 @@
-import webdriver, { By, Key, until } from "selenium-webdriver";
+import webdriver, { By, Key, until, WebElement } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome";
 import firefox from "selenium-webdriver/firefox";
 
@@ -10,7 +10,13 @@ export const clarity = async (
   pass: string,
   website: string,
   dryRun: boolean,
-  headless: boolean
+  headless: boolean,
+  hours?: number,
+  monday?: number,
+  tuesday?: number,
+  wednesday?: number,
+  thursday?: number,
+  friday?: number
 ) => {
   if (!userName || !pass || !website) {
     return;
@@ -67,13 +73,27 @@ export const clarity = async (
 
     // 6 find first input with name 'timeentry_id' <start days>
     const timeInputs = await driver.findElements(By.name("actuals_hours"));
+
+    const shouldEnterHours = async (timeInput: WebElement) =>
+      (await timeInput.getAttribute("value")) !== "8.00";
+
     if (timeInputs) {
       // index 1 should be the 2nd field, `Monday`
-      timeInputs[1].sendKeys("8");
-      timeInputs[2].sendKeys("8");
-      timeInputs[3].sendKeys("8");
-      timeInputs[4].sendKeys("8");
-      timeInputs[5].sendKeys("8");
+      if (await shouldEnterHours(timeInputs[1])) {
+        timeInputs[1].sendKeys(monday || hours || "8");
+      }
+      if (await shouldEnterHours(timeInputs[2])) {
+        timeInputs[2].sendKeys(tuesday || hours || "8");
+      }
+      if (await shouldEnterHours(timeInputs[3])) {
+        timeInputs[3].sendKeys(wednesday || hours || "8");
+      }
+      if (await shouldEnterHours(timeInputs[4])) {
+        timeInputs[4].sendKeys(thursday || hours || "8");
+      }
+      if (await shouldEnterHours(timeInputs[5])) {
+        timeInputs[5].sendKeys(friday || hours || "8");
+      }
     }
 
     // 7 click button with text `Save`

@@ -18,6 +18,16 @@ So this cli just uses selenium-webdriver to basically write an automated test ag
 
 It opens a browser to your Clarity url, uses your creds to login, navs to the timesheet screen, populates it, finds the first row for hours and fills in 8 hours for M-F.
 
+## Usage
+
+It's as easy as `clarity`.
+
+But maybe you want to make it as repeatable and automated as possible. Run it with the optional params to streamline it further.
+
+For example, here's running clarity-cli with chrome, using creds for john, with clarity.mycompany.com, using a dry run so that we can see what it does, and it doesn't actually submit:
+
+`clarity -c -u john -w clarity.mycompany.com -d`
+
 ## Prerequisites
 
 1. Be sure to have nodejs installed
@@ -49,23 +59,11 @@ Just run `clarity` from your terminal. It'll guide you through the rest if you'r
 
 Run `clarity -h` for the help output.
 
-### Required Params
-
-Some params are required for this to run. At minimum, we need to know:
+### Optional Params
 
 1. Your browsertype (which selenium webdriver do you have set up on your machine? select from `chrome` or `safari` or `firefox`)
 1. `-w, --website <website>`: Your orgs Clarity Timesheet platform url
 1. `-u, --userName <userName>`: Your org username
-1. `-p, --pass <pass>`: Your org cred password. You can check the source, I'm not doing anything with it, but you should be always be wary of supply chain vulnerabilities. Never install this with `sudo` or run it with `sudo`.
-
-### Optional Params
-
 1. `-d, --dryRun`: Makes sure the automation doesn't actually submit the timesheet. Pretty good idea to use this if you're testing or just curious.
 1. `-h, --headless`: Makes the automation run headlessly, so you won't see anything other than the cli output. This means the browser won't open up so you can't watch the magic. But maybe you trust it so much you're cool with it running silently quickly in the background.
 1. `-i, --installHelp`: Outputs some help info. This readme should be your source for additional help, but tossed this in just cuz.
-
-### A good example cli command
-
-Running clarity-cli with chrome, using creds for john, with clarity.mycompany.com, using a dry run so that we can see what it does, and it doesn't actually submit:
-
-`clarity -c -u john -p myPa$$w0rd -w clarity.mycompany.com -d`

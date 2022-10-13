@@ -15,7 +15,7 @@
     "start:windows": "nodemon --watch 'src/**/*.ts' --exec \"npx ts-node\" src/index.ts",
     "create": "npm run build",
     "build": "tsc -p .",
-    "local": "npm i -g --force && clarity",
+    "local": "npm i -g --force && clarity -d",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
   },
   "author": "Kris Coleman",
@@ -24,6 +24,7 @@
     "@types/clear": "0.1.2",
     "@types/figlet": "1.5.5",
     "@types/node": "18.8.5",
+    "@types/promptly": "^3.0.2",
     "nodemon": "2.0.20",
     "ts-node": "10.9.1",
     "typescript": "4.8.4"
@@ -35,6 +36,7 @@
     "commander": "9.4.1",
     "figlet": "1.5.2",
     "path": "0.12.7",
+    "promptly": "^3.2.0",
     "selenium-webdriver": "4.5.0"
   },
   "types": "./lib/index.d.ts",
