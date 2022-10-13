@@ -67,3 +67,9 @@ Run `clarity -h` for the help output.
 1. `-d, --dryRun`: Makes sure the automation doesn't actually submit the timesheet. Pretty good idea to use this if you're testing or just curious.
 1. `-h, --headless`: Makes the automation run headlessly, so you won't see anything other than the cli output. This means the browser won't open up so you can't watch the magic. But maybe you trust it so much you're cool with it running silently quickly in the background.
 1. `-i, --installHelp`: Outputs some help info. This readme should be your source for additional help, but tossed this in just cuz.
+1. `-H, --hours <number>`: change the default hours per day
+1. `-M, --monday <number>`: change the hours for monday
+1. `-T, --tuesday <number>`: change the hours for tuesday
+1. `-W, --wednesday <number>`: change the hours for wednesday
+1. `-T, --thursday <number>`: change the hours for thursday
+1. `-F, --friday <number>`: change the hours for friday
