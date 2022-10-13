@@ -1,6 +1,6 @@
 {
   "name": "@kriscodeman/clarity-cli",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Because we got better 💩 to do! 🏃🏻💨",
   "publishConfig": {
     "access": "public",
