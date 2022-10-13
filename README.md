@@ -57,7 +57,7 @@ After installation, it's pretty easy.
 
 Just run `clarity` from your terminal. It'll guide you through the rest if you're missing any parameters.
 
-Run `clarity -h` for the help output.
+Run `clarity --help` for the help output.
 
 ### Optional Params
 

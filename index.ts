@@ -8,6 +8,7 @@ import { BrowserType, clarity } from "./clarity-util";
 import { exit } from "process";
 import promptly from "promptly";
 import os from "os";
+import * as packageJson from "./package.json";
 
 const cli = async (): Promise<void> => {
   let browserType: BrowserType;
@@ -34,7 +35,7 @@ const cli = async (): Promise<void> => {
   splash();
 
   program
-    .version("0.0.0")
+    .version(packageJson.version)
     .description(
       "A cli for Clarity Timesheets, because we have better 💩 to do! 🏃🏻💨"
     )
@@ -56,27 +57,27 @@ const cli = async (): Promise<void> => {
       "Your clarity api url, WITHOUT PROTOCOL, simply like 'clarity.mycompany.com'."
     )
     .option(
-      "-H, --hours <number>",
+      "-H, --hours '<number>'",
       "Hours, if you want to customize the default hours per day"
     )
     .option(
-      "-M, --monday <number>",
+      "-M, --monday '<number>'",
       "Hours for Monday, if you want to customize"
     )
     .option(
-      "-T, --tuesday <number>",
+      "-T, --tuesday '<number>'",
       "Hours for Tuesday, if you want to customize"
     )
     .option(
-      "-W, --wednesday <number>",
+      "-W, --wednesday '<number>'",
       "Hours for Wednesday, if you want to customize"
     )
     .option(
-      "-T, --thursday <number>",
+      "-T, --thursday '<number>'",
       "Hours for Thursday, if you want to customize"
     )
     .option(
-      "-F, --friday <number>",
+      "-F, --friday '<number>'",
       "Hours for Friday, if you want to customize"
     )
     .parse(process.argv);
