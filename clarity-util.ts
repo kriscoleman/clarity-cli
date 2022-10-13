@@ -74,24 +74,28 @@ export const clarity = async (
     // 6 find first input with name 'timeentry_id' <start days>
     const timeInputs = await driver.findElements(By.name("actuals_hours"));
 
-    const shouldEnterHours = async (timeInput: WebElement) =>
-      (await timeInput.getAttribute("value")) !== "8.00";
+    const shouldEnterHours = async (
+      timeInput: WebElement,
+      dayHours?: number | string,
+      hours?: number | string
+    ) => (await timeInput.getAttribute("value")) != dayHours || hours;
 
     if (timeInputs) {
       // index 1 should be the 2nd field, `Monday`
-      if (await shouldEnterHours(timeInputs[1])) {
+      // TODO: if there's already a value there, can we just handle that? maybe select text so we overwrite it
+      if (await shouldEnterHours(timeInputs[1], monday, hours)) {
         timeInputs[1].sendKeys(monday || hours || "8");
       }
-      if (await shouldEnterHours(timeInputs[2])) {
+      if (await shouldEnterHours(timeInputs[2], tuesday, hours)) {
         timeInputs[2].sendKeys(tuesday || hours || "8");
       }
-      if (await shouldEnterHours(timeInputs[3])) {
+      if (await shouldEnterHours(timeInputs[3], wednesday, hours)) {
         timeInputs[3].sendKeys(wednesday || hours || "8");
       }
-      if (await shouldEnterHours(timeInputs[4])) {
+      if (await shouldEnterHours(timeInputs[4], thursday, hours)) {
         timeInputs[4].sendKeys(thursday || hours || "8");
       }
-      if (await shouldEnterHours(timeInputs[5])) {
+      if (await shouldEnterHours(timeInputs[5], friday, hours)) {
         timeInputs[5].sendKeys(friday || hours || "8");
       }
     }

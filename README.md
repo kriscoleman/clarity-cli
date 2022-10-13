@@ -31,7 +31,7 @@ For example, here's running clarity-cli with chrome, using creds for john, with 
 ## Prerequisites
 
 1. Be sure to have nodejs installed
-1. You'll want to have admin access to the machine your own to run the automation
+1. You'll want to have admin access to the machine your on to run the automation
 1. You'll want to have the webdriver you'd like to use installed on your path for your machine. Follow setup instructions for selenium-webdriver javascript here: <https://github.com/SeleniumHQ/selenium/tree/trunk/javascript/node/selenium-webdriver#readme>
 
 ## Installation

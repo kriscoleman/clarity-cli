@@ -204,16 +204,15 @@ const cli = async (): Promise<void> => {
     options.friday
   )
     .then(() => {
-      splash();
       clear();
+      splash();
       console.log(
         chalk.green(figlet.textSync("All done!", { horizontalLayout: "full" }))
       );
       console.log(
-        chalk.green(
-          "✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅"
-        )
+        chalk.green("✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅")
       );
+      console.log("\r\n");
       console.log(chalk.blue("... btw ..."));
       console.log("\r\n");
       console.log(
@@ -221,29 +220,29 @@ const cli = async (): Promise<void> => {
       );
       console.log("\r\n");
       console.log(
-        chalk.blue(
-          "⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰"
-        )
+        chalk.blue("⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰⏰")
       );
 
       const commandString = `clarity -u ${options.userName} -w ${
         options.website
-      }${(options.chrome && "-c ") || ""}${(options.safari && "-s ") || ""}${
+      } ${(options.chrome && "-c ") || ""}${(options.safari && "-s ") || ""}${
         (options.firefox && "-f ") || ""
       }${(options.headless && "-h ") || ""}${(options.dryRun && "-d ") || ""}${
-        (options.hours && options.hours != 8 && `-h ${options.hours}`) || ""
-      }${(options.monday && `-m ${options.monday}`) || ""}${
-        (options.tuesday && `-h ${options.tuesday}`) || ""
-      }${(options.wednesday && `-h ${options.wednesday}`) || ""}${
-        (options.thursday && `-h ${options.thrusday}`) || ""
-      }${(options.friday && `-h ${options.friday}`) || ""}`;
+        (options.hours && options.hours != 8 && `-H ${options.hours}`) || ""
+      }${(options.monday && `-M ${options.monday}`) || ""}${
+        (options.tuesday && `-T ${options.tuesday}`) || ""
+      }${(options.wednesday && `-W ${options.wednesday}`) || ""}${
+        (options.thursday && `--thursday ${options.thrusday}`) || ""
+      }${(options.friday && `-F ${options.friday}`) || ""}`;
       console.log("\r\n");
       console.log("\r\n");
       console.log(chalk.magenta(commandString));
       console.log("\r\n");
       console.log("\r\n");
       console.log(
-        chalk.blue("🏃🏻  💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨⏰")
+        chalk.blue(
+          "🏃🏻  💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨💨⏰"
+        )
       );
     })
     .catch(console.error);
